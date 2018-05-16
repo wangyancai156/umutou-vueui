@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-table :data="tableData2" style="width: 100%" :row-class-name="tableRowClassName">
+        <el-table :data="tableData2" style="width: 100%" >
             <el-table-column type="selection" width="55">
             </el-table-column>
             <el-table-column prop="Name" label="Name" width="180">
@@ -43,8 +43,10 @@ export default {
     },
     methods: {
         getjson() {
-            this.$http.get("/api/api/Warehouse").then(res => {
-                this.tableData2 = res.data;
+            this.$http.get("http://localhost:3143/api/account/login?uname=admin&upass=123").then(res => {
+              console.log(res.data);
+              console.log(res.data.UserName);
+              //this.tableData2 = res.data;
             });
         }
     }

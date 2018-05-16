@@ -7,28 +7,43 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    env: require('./dev.env'),
+    port: process.env.PORT || 8080,
+    autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/api': {  //使用"/api"来代替"http://f.apiplus.c" 
-        target: 'http://localhost:3143', //源地址 
-        changeOrigin: true, //改变源 
-        pathRewrite: { 
-          '^/api': '/' //路径重写 
-        } 
-      } 
+      '/api': {
+        target: 'http://localhost:3143/api',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
     },
 
-    // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
-    errorOverlay: true,
-    notifyOnErrors: true,
-    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+    // Paths
+    // assetsSubDirectory: 'static',
+    // assetsPublicPath: '/',
+    // proxyTable: {
+    //     '/api': {  //使用"/api"来代替"http://f.apiplus.c"
+    //     target: 'https://www.dupengnet.com/', //源地址
+    //     changeOrigin: true, //改变源
+    //     pathRewrite: {
+    //       '^/api': '/' //路径重写
+    //     }
+    //   }
+    // },
+    //
+    // // Various Dev Server settings
+    // host: 'https://www.dupengnet.com/', // can be overwritten by process.env.HOST
+    // port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    // autoOpenBrowser: true,
+    // errorOverlay: true,
+    // notifyOnErrors: true,
+    // poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
